@@ -41,7 +41,7 @@ weightloss-app/
 ## Environment Variables
 Create a `.env` file with:
 ```env
-DEEPSEEK_API_KEY=your_api_key_here
+DEEPSEEK_API_KEY=your_api_key_here # LLM model API_KEY  example of Deepseek model
 
 ## BMR
 A BMR Calculator is a tool that calculates your Basal Metabolic Rate (BMR), which is the number of calories your body needs to perform basic functions (like breathing, circulation, and cell production) at rest. In other words, it’s the number of calories you’d burn if you stayed in bed all day.
