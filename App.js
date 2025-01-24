@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Alert, ScrollView } from 'react-native';
+import { View, StyleSheet, Alert, ScrollView, TouchableOpacity } from 'react-native';
 import { Provider as PaperProvider, Button, TextInput, Text, Card, RadioButton, Divider } from 'react-native-paper';
 import { LinearGradient } from 'expo-linear-gradient';
 import { MealSuggestionsModal } from './components/MealSuggestionsModal';
@@ -202,23 +202,17 @@ function MainApp() {
           </Card>
 
           <View style={styles.buttonContainer}>
-            <Button 
-              mode="contained"
-              onPress={calculateDietPlan}
-              style={styles.calculateButton}
-              labelStyle={styles.calculateButtonText}
-              loading={loading}
-            >
-              CALCULATE MY PLAN
-            </Button>
-            <Button 
-              mode="outlined"
-              onPress={handleReset}
-              style={styles.resetButton}
-              labelStyle={styles.resetButtonText}
-            >
-              RESET
-            </Button>
+            <TouchableOpacity 
+              style={[styles.button, styles.calculateButton]}
+              onPress={calculateDietPlan}>
+              <Text style={styles.buttonText}>Calculate My Plan</Text>
+            </TouchableOpacity>
+            
+            <TouchableOpacity 
+              style={[styles.button, styles.resetButton]}
+              onPress={handleReset}>
+              <Text style={styles.buttonText}>Reset</Text>
+            </TouchableOpacity>
           </View>
 
           {dietPlan && (
@@ -318,35 +312,34 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 20,
+    padding: 15,
     marginTop: 20,
-    gap: 10,
-  },
-  calculateButton: {
-    flex: 2,
-    backgroundColor: '#2196F3',
-    padding: 8,
-    elevation: 4,
-  },
-  calculateButtonText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: 'white',
-    letterSpacing: 1,
-  },
-  resetButton: {
-    flex: 1,
-    borderColor: '#FF5252',
-    borderWidth: 2,
-  },
-  resetButtonText: {
-    fontSize: 16,
-    color: '#FF5252',
-    fontWeight: 'bold',
+    marginBottom: 20,
+    width: '100%',
+    maxWidth: 500,
   },
   button: {
-    marginTop: 16,
-    padding: 8,
+    flex: 1,
+    maxWidth: 200,
+    minWidth: 150,
+    padding: 15,
+    borderRadius: 8,
+    elevation: 3,
+  },
+  calculateButton: {
+    backgroundColor: '#4CAF50',
+  },
+  resetButton: {
+    backgroundColor: '#f44336',
+  },
+  buttonText: {
+    color: 'white',
+    textAlign: 'center',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
   loader: {
     marginTop: 20,

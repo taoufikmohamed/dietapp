@@ -1,7 +1,14 @@
-const API_KEY = 'sk-xxxxxxxxxxxxxxxxxxxxxxxxx0922ce'; //for example
+const API_KEY = 'sk-92be99eee832402cb770d833cb0922ce'; //for example
 const DEEPSEEK_API_URL = 'https://api.deepseek.com/v1/chat/completions';
 
-export const getMealSuggestions = async (calories, macros) => {
+export const getMealSuggestions = async (calories, macros, filters = {}) => {
+  const {
+    dietaryPreference = 'any', // vegetarian, vegan, pescatarian
+    allergies = [],
+    mealType = 'all', // breakfast, lunch, dinner, snacks
+    cuisine = 'any'
+  } = filters;
+
   try {
     const response = await fetch(DEEPSEEK_API_URL, {
       method: 'POST',
@@ -18,10 +25,10 @@ export const getMealSuggestions = async (calories, macros) => {
           },
           {
             role: "user",
-            content: `Create a detailed meal plan for ${calories} calories with:
-              Protein: ${macros.protein}g
-              Carbs: ${macros.carbs}g
-              Fat: ${macros.fat}g`
+            content: `Create a ${dietaryPreference} meal plan for ${mealType} with ${calories} calories.
+                     Macros: Protein ${macros.protein}g, Carbs ${macros.carbs}g, Fat ${macros.fat}g.
+                     Exclude: ${allergies.join(', ')}.
+                     Cuisine preference: ${cuisine}`
           }
         ]
       })
@@ -30,7 +37,7 @@ export const getMealSuggestions = async (calories, macros) => {
     const data = await response.json();
     return data.choices[0].message.content;
   } catch (error) {
-    console.error('API Error:', error);
-    return 'Unable to generate meal suggestions at this time.';
+    console.error('Error fetching meal suggestions:', error);
+    throw new Error('Failed to get meal suggestions');
   }
 };
