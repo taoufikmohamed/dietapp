@@ -1,4 +1,4 @@
-const API_KEY = 'sk-92be99eee832402cb770d833cb0922ce'; //for example
+const API_KEY = ''; //for example
 const DEEPSEEK_API_URL = 'https://api.deepseek.com/v1/chat/completions';
 
 export const getMealSuggestions = async (calories, macros, filters = {}) => {
