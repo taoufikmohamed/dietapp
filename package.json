@@ -2,11 +2,16 @@
   "name": "diet-app",
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
+  "homepage": "https://taoufikmohamed.github.io/Reat-dietapp",
   "scripts": {
     "start": "expo start",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "build": "expo export",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@expo/metro-runtime": "^4.0.1",
     "@expo/vector-icons": "^13.0.0",
     "@react-native-async-storage/async-storage": "^2.1.0",
     "dotenv": "^16.4.7",
@@ -24,6 +29,6 @@
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@babel/preset-react": "^7.26.3",
-    "@expo/webpack-config": "^0.12.52"
+    "gh-pages": "^6.3.0"
   }
 }
