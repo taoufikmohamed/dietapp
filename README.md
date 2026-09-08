@@ -10,27 +10,27 @@ A React Native application for personalized meal planning and diet tracking.
 
 ## Project Structure
 
-weightloss-app/
-├── src/
-│   ├── components/
-│   │   ├── ProgressIndicator.js     # Progress bar and steps
-│   │   ├── MealSuggestionsModal.js  # Modal for meal plan display
-│   │   └── DietPlanForm.js         # Input form for user data
-│   ├── services/
-│   │   └── deepseekAPI.js          # API integration
-│   ├── styles/
-│   │   └── globalStyles.js         # Shared styles
-│   ├── utils/
-│   │   └── calculations.js         # Diet calculations
-│   └── App.js                      # Main component
-├── assets/
-│   ├── icon.png
-│   ├── splash.png
-│   └── favicon.png
-├── app.json                        # Expo configuration
-├── babel.config.js                 # Babel configuration
-├── package.json                    # Dependencies
-└── .env                           # Environment variables
+    weightloss-app/
+    ├── src/
+    │   ├── components/
+    │   │   ├── ProgressIndicator.js     # Progress bar and steps
+    │   │   ├── MealSuggestionsModal.js  # Modal for meal plan display
+    │   │   └── DietPlanForm.js         # Input form for user data
+    │   ├── services/
+    │   │   └── deepseekAPI.js          # API integration
+    │   ├── styles/
+    │   │   └── globalStyles.js         # Shared styles
+    │   ├── utils/
+    │   │   └── calculations.js         # Diet calculations
+    │   └── App.js                      # Main component
+    ├── assets/
+    │   ├── icon.png
+    │   ├── splash.png
+    │   └── favicon.png
+    ├── app.json                        # Expo configuration
+    ├── babel.config.js                 # Babel configuration
+    ├── package.json                    # Dependencies
+    └── .env                           # Environment variables
 
 ## Installation
 1. Clone the repository
